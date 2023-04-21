@@ -1,0 +1,39 @@
+{% import "bootstrap/form.html" as wtf %}
+
+{% include "header.html" %}
+    <div class="container-fluid" id="header">
+        <h1 class="site-heading">Contact</h1>
+    </div>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class=" col-sm-12">
+                    <p style="color: #F6F1F1; text-align: center; font-style: italic;">{{ message }}</p>
+                    </div>
+                {% endfor%}
+            {% endif %}
+        {% endwith%}
+        {{ wtf.render_form(form, button_style='btn-dark') }}
+
+
+    <div class="container-fluid " id="maincard">
+      <div class="row">
+          {% for link in links %}
+          {% if link == 'Home' %}
+          <div class="col-md-4 card" alt="Card image" style="background-image: url('https://images.unsplash.com/photo-1502423355923-ec962795a099?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=810&q=80'); background-position: 52% 73%">
+              <a href="{{ url_for('home') }}" class="card-title stretched-link">{{ link }}</a>
+          </div>
+          {% elif link == 'My Story' %}
+          <div class="col-md-4 card" alt="Card image" style="background-image: url('https://images.unsplash.com/reserve/LJIZlzHgQ7WPSh5KVTCB_Typewriter.jpg?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=792&q=80'); background-position: 50% 42%">
+              <a href="{{ url_for('about') }}" class="card-title stretched-link">{{ link }}</a>
+          </div>
+          {% elif link == 'Portfolio' %}
+            <div class="col-md-4 card" alt="Card image" style="background-image: url('https://images.unsplash.com/photo-1451680350250-2ae7d6e00f5a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'); background-position: 50% 60%">
+              <a href="{{ url_for('portfolio') }}" class="card-title stretched-link">{{ link }}</a>
+            </div>
+          {% endif %}
+          {% endfor %}
+      </div>
+    </div>
+{% include "footer.html" %}

@@ -1,0 +1,29 @@
+{% include "header.html" %}
+    <div class="container-fluid" id="header">
+        <h1 class="site-heading">Portfolio</h1>
+    </div>
+
+    <div class="container-fluid" id="header">
+        <p class="site-subheading">In Progress...</p>
+    </div>
+
+    <div class="container-fluid " id="maincard">
+      <div class="row">
+          {% for link in links %}
+          {% if link == 'Home' %}
+          <div class="col-md-4 card" alt="Card image" style="background-image: url('https://images.unsplash.com/photo-1502423355923-ec962795a099?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=810&q=80'); background-position: 52% 73%">
+              <a href="{{ url_for('home') }}" class="card-title stretched-link">{{ link }}</a>
+          </div>
+          {% elif link == 'My Story' %}
+          <div class="col-md-4 card" alt="Card image" style="background-image: url('https://images.unsplash.com/reserve/LJIZlzHgQ7WPSh5KVTCB_Typewriter.jpg?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=792&q=80'); background-position: 50% 42%">
+              <a href="{{ url_for('about') }}" class="card-title stretched-link">{{ link }}</a>
+          </div>
+          {% elif link =='Contact' %}
+          <div class="col-md-4 card" alt="Card image" style="background-image: url('https://images.unsplash.com/photo-1498049794561-7780e7231661?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80'); background-position: 30% 40%">
+              <a href="{{ url_for('contact') }}" class="card-title stretched-link">{{ link }}</a>
+            </div>
+          {% endif %}
+          {% endfor %}
+      </div>
+    </div>
+{% include "footer.html" %}

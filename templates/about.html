@@ -1,0 +1,51 @@
+{% include "header.html" %}
+
+<div class="container-fluid" id="header">
+    <h1 class="site-heading">My Story</h1>
+    <div class="story">
+        <p>I am a 26-year-old self-taught web developer based in Brisbane, Australia, striving to get my career in the tech industry underway.</p>
+
+        <p>I am originally from Seoul, South Korea, and came to Australia when I was just 10 years old. What was supposed to be a short-term, exchange-student type of experience somehow eventually turned into myself becoming a proud Aussie - the first of two major unforeseen shifts in my life.</p>
+
+        <p>As of just one year ago, I had no idea that I would be venturing into the tech space as I was busy working in hospitals trying to obtain my Doctor of Medicine degree from the University of Queensland (UQ).</p>
+
+        <p>Having achieved very highly throughout high school, being lucky enough to obtain an OP 1 (or 99 ATAR), the obvious route to go down, or so it seemed at the time, was to go along with the 'popular choice' and study medicine. I would be accepted as a pre-medical student by UQ and go on to complete the Bachelor of Science as my undergraduate degree, before starting my journey to become a doctor.</p>
+
+        <p>But as I got deeper and deeper into my studies, getting to see the inner workings of hospitals, doctors, and fellow medical students, the curtain slowly began to peel back. Not only was the life of a doctor not nearly as glamorous as it once seemed from the outside, with a gruelling work schedule and at times a toxic culture and in-house politics, the work itself was just not fulfilling and it did not play at all to my strengths.</p>
+
+        <p>If the human brain was analogous to a computer, mine would be considered one with a fairly fast processor but a relatively low memory capacity.</p>
+
+        <p>My strengths intellectually have always been in the problem solving and pattern recognition domains, hence my ability to always excel in mathematics and why I work as a maths tutor to this day. Meanwhile, medicine seemed to put an enormous amount of emphasis on memorisation, asking you to learn fact after fact - and obscure ones at that.</p>
+
+        <p>While everyone can understand the importance of learning about even the rarest of diseases, in an age where a flood of information is just a few taps or clicks away, from sources more reliable than human memory alone, I could not comprehend why this skill was seemingly so disproportionately valued.<p>
+
+        <p>So, having already completed three years out of the four required for the degree, I made the most difficult yet paradoxically easy decision, against the wishes of my immediate family, to leave my studies and tackle a new challenge - one I deemed to be more suited to my strengths, and the second of the two unforeseen major shifts in my life. </p>
+
+        <p>And that brings me to present day. I am currently focusing on full-stack web development using <b>HTML, CSS</b> and <b>Bootstrap</b> for front-end, and <b>Python</b> and <b>Flask</b> for back-end. I am also familiar with <b>React</b> and some cross-platform mobile development with <b>Flutter</b>.</p>
+
+        <p>Thank you for taking an interest in my story. It turned out more like a blog post in the end XD.</p>
+
+    </div>
+</div>
+
+    <div class="container-fluid " id="maincard">
+      <div class="row">
+          {% for link in links %}
+          {% if link == 'Home' %}
+          <div class="col-md-4 card" alt="Card image" style="background-image: url('https://images.unsplash.com/photo-1502423355923-ec962795a099?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=810&q=80'); background-position: 52% 73%">
+              <a href="{{ url_for('home') }}" class="card-title stretched-link">{{ link }}</a>
+          </div>
+            {% elif link == 'Portfolio' %}
+            <div class="col-md-4 card" alt="Card image" style="background-image: url('https://images.unsplash.com/photo-1451680350250-2ae7d6e00f5a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'); background-position: 50% 60%">
+              <a href="{{ url_for('portfolio') }}" class="card-title stretched-link">{{ link }}</a>
+            </div>
+          {% elif link =='Contact' %}
+          <div class="col-md-4 card" alt="Card image" style="background-image: url('https://images.unsplash.com/photo-1498049794561-7780e7231661?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80'); background-position: 30% 40%">
+              <a href="{{ url_for('contact') }}" class="card-title stretched-link">{{ link }}</a>
+            </div>
+          {% endif %}
+          {% endfor %}
+      </div>
+    </div>
+
+{% include "footer.html" %}
